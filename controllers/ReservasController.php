@@ -117,6 +117,21 @@ class ReservasController extends Controller
         return $this->redirect(['index']);
     }
 
+
+    public function actionVuelos($q)
+    {
+        $dataProvider = new ActiveDataProvider([
+            //'query' => Vuelo::find()->where(['ilike', 'id_vuelo', $q]),
+            'query' => Vuelo::find()->where("id_vuelo ilike '%$q%'"),
+            'pagination' => [
+                'pageSize' => 1,
+            ],
+            'sort' => false,
+        ]);
+        return $this->renderAjax('_vuelos', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Finds the Reserva model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

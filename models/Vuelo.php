@@ -99,4 +99,16 @@ class Vuelo extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Compania::className(), ['id' => 'comp_id'])->inverseOf('vuelos');
     }
+
+    public function getUsuariosVuelo()
+    {
+        $usurs = [];
+        $max = sizeof( $this->reservas);
+
+        for ($i=0; $i < $max; $i++) {
+            $usurs[] = $this->reservas[$i]->usuario->nombre;
+        }
+
+        return implode(",",$usurs);
+    }
 }
