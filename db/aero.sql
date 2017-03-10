@@ -56,11 +56,13 @@ create table reservas (
   constraint uq_asiento_unico unique (vuelo_id, asiento)
 );
 
-insert into usuarios (nombre,password) values ('pepi','pepi');
+insert into usuarios (nombre,password) values ('pepi','pepi'), ('pepo','pepo');
 
 insert into companias (den_comp) values('Airliness'),('Emirates'),('Spanair');
 
 insert into aeropuertos (id_aero, den_aero) values ('XHR','Barajas'),('J5T','Sambio'),('ZFD','Motril'),('G57','Mallorca'),('K09','Campagne');
 
 insert into vuelos (id_vuelo, orig_id, dest_id,comp_id,salida, llegada, plazas, precio)
-  values('S1R555',1,2,2,'13-07-2013','12-08-2013',200,12.56);
+  values('S1R555',1,2,2,'13-07-2013','12-08-2013',200,12.56),
+        ('R34XXX',5,2,1,'19-09-2013','19-09-2013',200,13.56),
+        ('FFF1RT',2,3,2,'22-03-2013','12-04-2013',200,14.56) ;
